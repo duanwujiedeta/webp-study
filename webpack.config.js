@@ -9,7 +9,10 @@ module.exports = {
   module: {
     rules: [{
       test: /\.css$/i,
-      use: ['style-loader', 'css-loader'],//处理顺序，从右到左
+      use: ['style-loader', 'css-loader'], //处理顺序，从右到左
+    }, {
+      test: /\.(png|svg|jpg|jpeg|gif)$/i,
+      type: 'asset/resource',
     }]
   }
 };
