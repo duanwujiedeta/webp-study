@@ -6,7 +6,7 @@ function component() {
   const element = document.createElement('div');
 
   // Lodash, now imported by this script
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+  element.innerHTML = _.join(['Hello', 'webpack','中文'], ' ');
   element.classList.add('hello');
 
   // 将图像添加到我们已存在的 div 中。
