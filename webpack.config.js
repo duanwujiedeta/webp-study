@@ -5,7 +5,6 @@ module.exports = {
   mode: 'development',
   entry: {
     index: './src/index.js',
-    another: './src/another-module.js',
   },
   devtool: 'inline-source-map',
   devServer: {
@@ -22,9 +21,4 @@ module.exports = {
     clean: true,
     // publicPath: "/",
   },
-  optimization: {
-    splitChunks: {
-      chunks: "all",
-    }
-  }
 };
