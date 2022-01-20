@@ -6,13 +6,14 @@ module.exports = {
     index: './src/index.js',
     print: './src/print.js'
   },
-  plugins:[
+  plugins: [
     new HtmlWebpackPlugin({
-      title:"输出----管理"
+      title: "输出----管理"
     }),
   ],
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
+    clean: true
   },
 };
