@@ -7,6 +7,8 @@ async function getComponent() {
 
 }
 
+import(/* webpackPrefetch: true */ "./test.js");
+
 getComponent().then((component) => {
   document.body.appendChild(component);
 });
