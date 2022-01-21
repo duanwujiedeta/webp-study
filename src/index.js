@@ -7,7 +7,7 @@ async function getComponent() {
 
 }
 
-import(/* webpackPrefetch: true */ "./test.js");
+import(/* webpackPrefetch: true */ "./test.js");/* 会在header头部生成， <link ref="prefetch" href="src_test_js.bundle.js"> */
 
 getComponent().then((component) => {
   document.body.appendChild(component);
