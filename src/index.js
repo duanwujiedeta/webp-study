@@ -1,14 +1,14 @@
-async function getComponent() {
-  const element = document.createElement('div');
-  const {default:_} = await import('lodash');
+import _ from "lodash";
+import Print from "./print";
 
-  element.innerHTML = _.join(['Hello', 'webpack', '中文11'], ' ');
+function component() {
+  const element = document.createElement("div");
+
+  // lodash 是由当前 script 脚本 import 进来的
+  element.innerHTML = _.join(["Hello", "webpack"], " ");
+  element.onclick = Print.bind(null, "Hello webpack!!!");
+
   return element;
-
 }
 
-import(/* webpackPreload: true */ "./test.js");/* preload会在父级加载的时候并行加载 */
-
-getComponent().then((component) => {
-  document.body.appendChild(component);
-});
+document.body.appendChild(component());
