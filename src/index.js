@@ -1,19 +1,22 @@
 import _ from 'lodash';
-import printMe from './print';
 
 function component() {
   const element = document.createElement('div');
-  const btn = document.createElement("button");
+  const button = document.createElement("button");
+  const br = document.createElement('br');
 
+  button.innerHTML = 'Click me and look at the console!';
+  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+  element.appendChild(br);
+  element.appendChild(button);
 
-  element.innerHTML = _.join(['Hello', 'webpack', '中文'], ' ');
+  // Note that because a network request is involved,some indication
+  // of loading would need to be shown in a production-level site/app.
+  button.onclick = e => import(/* webpackChunkName: "print" */ './print').then(module => {
+    const print = module.default;// 异步懒加载，必须指向模块的 .default 值，因为是被 promise 处理过的实际 module 对象。
 
-
-  btn.innerHTML = "Click me an check the console!"
-  btn.onclick = printMe;
-
-  element.appendChild(btn);
-
+    print();
+  })
 
   return element;
 }
