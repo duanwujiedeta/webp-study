@@ -4,8 +4,9 @@
   "description": "",
   "private": true,
   "scripts": {
+    "start": "webpack serve --open --config webpack.dev.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack",
+    "build": "webpack --config webpack.prod.js  --env NODE_ENV=production",
     "env_build": "webpack --env goal=local --env production --progress"
   },
   "repository": {
@@ -20,8 +21,10 @@
   },
   "homepage": "https://github.com/duanwujiedeta/webp-study#readme",
   "devDependencies": {
+    "html-webpack-plugin": "^5.5.0",
     "lodash": "^4.17.21",
     "webpack": "^5.66.0",
-    "webpack-cli": "^4.9.1"
+    "webpack-cli": "^4.9.1",
+    "webpack-merge": "^5.8.0"
   }
 }
