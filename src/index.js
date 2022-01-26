@@ -1,31 +1,15 @@
-import _ from 'lodash';
-import printMe from './print';
+import { CONSTANT, variable } from './module.js';
+// 导入由其他模块导出的“绑定”
+// 这些绑定是动态的. 这里并非获取到了值的副本
+// 而是当将要访问“variable”时
+// 再从导入的模块中获取当前值
 
-function component() {
-  const element = document.createElement('div');
-  const btn = document.createElement("button");
+import * as module from './module.js';
+module.fun();
+// 导入包含所有导出内容的“命名空间对象”
 
-
-  element.innerHTML = _.join(['Hello', 'webpack', '中文'], ' ');
-
-
-  btn.innerHTML = "Click me an check the console!"
-  btn.onclick = printMe;
-
-  element.appendChild(btn);
+import theDefaultValue from './module.js';
+// 导入 `default` 导出的快捷方式
 
 
-  return element;
-}
-
-let element = component(); // 存储 element，以在 print.js 修改时重新渲染
-document.body.appendChild(element);
-
-if (module.hot) {
-  module.hot.accept('./print.js', function() {
-    console.log('Accepting the updated printMe module!');
-    document.body.removeChild(element);
-    element = component(); // 重新渲染 "component"，以便更新 click 事件处理函数
-    document.body.appendChild(element);
-  })
-}
+console.log(theDefaultValue);
