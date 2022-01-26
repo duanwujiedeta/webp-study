@@ -14,7 +14,7 @@ module.exports = (env) => {
     output: {
       path: path.resolve(__dirname, 'dist'),
       filename: 'webpack-numbers.js',
-      publicPath: ASSET_PATH,
+      publicPath: ASSET_PATH,//也可以设置为 auto，auto会根据 import.meta.url、document.currentScript、script.src 或者 self.location 变量设置 publicPath。
       clean: true,
     },
     plugins: [
