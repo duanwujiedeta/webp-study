@@ -9,13 +9,23 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/globals.js":
+/*!************************!*\
+  !*** ./src/globals.js ***!
+  \************************/
+/***/ ((module) => {
+
+eval("const file = 'blah.txt';\r\nconst helpers = {\r\n    test: function () {\r\n        console.log('test something');\r\n    },\r\n    parse: function () {\r\n        console.log('parse something');\r\n    },\r\n};\n/*** EXPORTS FROM exports-loader ***/\nmodule.exports = {\n  file,\n  \"parse\": (helpers.parse)\n};\n\n\n//# sourceURL=webpack://getting-started-using-a-configuration/./src/globals.js?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("/* provided dependency */ var join = __webpack_require__(/*! lodash */ \"./node_modules/lodash/lodash.js\")[\"join\"];\n/*** IMPORTS FROM imports-loader ***/\n\n(function() {\nfunction component() {\r\n  const element = document.createElement('div');\r\n\r\n  element.innerHTML = join(['Hello', 'webpack'], ' ');\r\n\r\n  // 假设我们处于 `window` 上下文\r\n  this.alert('Hmmm, this probably isn\\'t a great idea...')\r\n\r\n\r\n  return element;\r\n}\r\n\r\ndocument.body.appendChild(component());\n}.call(window));\n\n\n//# sourceURL=webpack://getting-started-using-a-configuration/./src/index.js?");
+eval("/* provided dependency */ var join = __webpack_require__(/*! lodash */ \"./node_modules/lodash/lodash.js\")[\"join\"];\n/*** IMPORTS FROM imports-loader ***/\n\n(function() {\nconst {\r\n  file,\r\n  parse\r\n} = __webpack_require__(/*! ./globals.js */ \"./src/globals.js\");\r\n\r\nconsole.log(file);\r\nconsole.log(parse);\r\n\r\nfunction component() {\r\n  const element = document.createElement('div');\r\n\r\n  element.innerHTML = join(['Hello', 'webpack'], ' ');\r\n\r\n  // 假设我们处于 `window` 上下文\r\n  this.alert('Hmmm, this probably isn\\'t a great idea...')\r\n\r\n\r\n  return element;\r\n}\r\n\r\ndocument.body.appendChild(component());\n}.call(window));\n\n\n//# sourceURL=webpack://getting-started-using-a-configuration/./src/index.js?");
 
 /***/ }),
 

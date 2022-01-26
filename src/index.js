@@ -1,3 +1,11 @@
+const {
+  file,
+  parse
+} = require('./globals.js');
+
+console.log(file);
+console.log(parse);
+
 function component() {
   const element = document.createElement('div');
 
